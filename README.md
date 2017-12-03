@@ -1,6 +1,8 @@
 # proteus-quickstart
 This project provides a scaffolding for getting up and running quickly with [Netifi Proteus](http://www.netifi.com/proteus.html).
 
+The project comes with a simple client and service. The client sends the word `World` to the service and the service responds with the message `Hello, World!`.
+
 ## Prerequisites
 This quickstart requires a running Netifi Proteus Router cluster. 
 
