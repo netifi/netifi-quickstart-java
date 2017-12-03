@@ -36,7 +36,7 @@ Note the ports that are currently being assigned. You may need to modify them on
         8 actionable tasks: 2 executed, 6 up-to-date
 
 ## Bugs and Feedback
-For bugs, questions and discussions please use the [Github Issues](https://github.com/gregwhitaker/proteus-quickstart/issues).
+For bugs, questions and discussions please use the [Github Issues](https://github.com/netifi/proteus-quickstart/issues).
 
 ## License
 Copyright 2017 Netifi Inc.
