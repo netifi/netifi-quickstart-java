@@ -12,19 +12,19 @@ public class Main {
 
     public static void main(String... args) {
 
-        // Build Netifi Connection
+        // Build Netifi Proteus Connection
         Netifi netifi =
                 Netifi.builder()
-                        .group("quickstart.client")
-                        .destination("client")
-                        .host("localhost")
-                        .port(8001)
+                        .group("quickstart.clients")    // Group name of client
+                        .destination("client1")         // Name of this client instance
+                        .host("localhost")              // Proteus Router Host
+                        .port(8001)                     // Proteus Router Port
                         .build();
 
-        // Connect to Netifi
-        NetifiSocket conn = netifi.connect("quickstart.server").block();
+        // Connect to Netifi Proteus Platform
+        NetifiSocket conn = netifi.connect("quickstart.services.helloservices").block();
 
-        // Create Client to Communicate with the HelloService
+        // Create Client to Communicate with the HelloService (included example service)
         HelloServiceClient client = new HelloServiceClient(conn);
 
         // Create Request to HelloService

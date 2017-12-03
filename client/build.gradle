@@ -12,3 +12,5 @@ dependencies {
     compile "io.netifi.sdk:core:$netifiSdkVersion"
     compile 'com.google.protobuf:protobuf-java:3.4.0'
 }
+
+mainClassName = 'io.netifi.proteus.quickstart.client.Main'

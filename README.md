@@ -1,7 +1,9 @@
 # proteus-quickstart
 
+## Prerequisites
+
 ## Bugs and Feedback
-For bugs, questions and discussions please use the [Github Issues](https://github.com/netifi/proteus-quickstart/issues).
+For bugs, questions and discussions please use the [Github Issues](https://github.com/gregwhitaker/proteus-quickstart/issues).
 
 ## License
 Copyright 2017 Netifi Inc.

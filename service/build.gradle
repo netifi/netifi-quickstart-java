@@ -1,14 +1,16 @@
-group 'io.netifi'
-version '1.0.0'
-
-apply plugin: 'java'
+plugins {
+    id 'java'
+    id 'application'
+}
 
 sourceCompatibility = 1.8
 
-repositories {
-    mavenCentral()
+dependencies {
+    compile project(':service-idl')
+
+    compile "io.netifi.proteus:proteus-core:$proteusVersion"
+    compile "io.netifi.sdk:core:$netifiSdkVersion"
+    compile 'com.google.protobuf:protobuf-java:3.4.0'
 }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-}
+mainClassName = 'io.netifi.proteus.quickstart.service.Main'
