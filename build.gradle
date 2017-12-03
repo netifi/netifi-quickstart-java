@@ -1,0 +1,16 @@
+subprojects {
+    apply plugin: 'idea'
+
+    group 'io.netifi.proteus.quickstart'
+    version '1.0.0'
+
+    // Proteus Versions
+    ext {
+        proteusVersion = '0.2.1'
+        netifiSdkVersion = '0.2.2'
+    }
+
+    repositories {
+        jcenter()
+    }
+}

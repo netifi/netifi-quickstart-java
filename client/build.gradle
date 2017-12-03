@@ -1,0 +1,14 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+sourceCompatibility = 1.8
+
+dependencies {
+    compile project(':service-idl')
+
+    compile "io.netifi.proteus:proteus-core:$proteusVersion"
+    compile "io.netifi.sdk:core:$netifiSdkVersion"
+    compile 'com.google.protobuf:protobuf-java:3.4.0'
+}
