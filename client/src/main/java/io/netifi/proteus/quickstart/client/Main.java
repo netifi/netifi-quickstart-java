@@ -15,10 +15,13 @@ public class Main {
         // Build Netifi Proteus Connection
         Netifi netifi =
                 Netifi.builder()
-                        .group("quickstart.clients")    // Group name of client
-                        .destination("client1")         // Name of this client instance
-                        .host("localhost")              // Proteus Router Host
-                        .port(8001)                     // Proteus Router Port
+                        .group("quickstart.clients")                    // Group name of client
+                        .destination("client1")                         // Name of this client instance
+                        .accountId(100)
+                        .accessKey(7685465987873703191L)
+                        .accessToken("PYYgV9XHSJ/3KqgK5wYjz+73MeA=")
+                        .host("localhost")                              // Proteus Router Host
+                        .port(8001)                                     // Proteus Router Port
                         .build();
 
         // Connect to Netifi Proteus Platform

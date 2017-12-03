@@ -14,6 +14,9 @@ public class Main {
                 Netifi.builder()
                         .group("quickstart.services.helloservices")     // Group name of service
                         .destination("helloservice1")                   // Name of this service instance
+                        .accountId(100)
+                        .accessKey(7685465987873703191L)
+                        .accessToken("PYYgV9XHSJ/3KqgK5wYjz+73MeA=")
                         .host("localhost")                              // Proteus Router Host
                         .port(8001)                                     // Proteus Router Port
                         .build();
