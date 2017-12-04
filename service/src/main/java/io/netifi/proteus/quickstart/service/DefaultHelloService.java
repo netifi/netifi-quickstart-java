@@ -10,10 +10,16 @@ import reactor.core.publisher.Mono;
  */
 public class DefaultHelloService implements HelloService {
 
+    private final String serviceName;
+
+    public DefaultHelloService(final String serviceName) {
+        this.serviceName = serviceName;
+    }
+
     @Override
     public Mono<HelloResponse> sayHello(HelloRequest message) {
         return Mono.fromCallable(() -> HelloResponse.newBuilder()
-                .setMessage("Hello, " + message.getName() + "!")
+                .setMessage("Hello, " + message.getName() + "! from " + serviceName)
                 .build());
     }
 
