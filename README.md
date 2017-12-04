@@ -4,13 +4,27 @@ This project provides a scaffolding for getting up and running quickly with [Net
 The project comes with a simple client and service. The client sends the word `World` to the service and the service responds with the message `Hello, World! from {service name}`.
 
 ## Prerequisites
-This quickstart requires a running Netifi Proteus Router cluster. 
+This quickstart requires the following:
 
-You can start a single node cluster with Docker using the following command:
+1. Java Development Kit 8: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
-    $ docker run -p 8001:8001 -p 7001:7001 -e MEMBERS_ADDRESS=172.17.0.2:7001 -e CLUSTER_PUBLIC_ADDRESS=172.17.0.2:7001 -e CLUSTER_ADDRESS=172.17.0.2 -e ROUTER_ADDRESS=172.17.0.2 netifi/proteus
+2. Protocol Buffers Compiler
 
-Note the ports that are currently being assigned. You may need to modify them on your machine. If you modify the ports you will need to change them in the [client](/client/src/main/java/io/netifi/proteus/quickstart/client/Main.java) and [service](/service/src/main/java/io/netifi/proteus/quickstart/service/Main.java).
+    You can download the compiler from here: https://github.com/google/protobuf/releases
+    
+    OR
+    
+    If you are on a mac using homebrew you can install it with the following command:
+    
+        $ brew install protobuf
+
+3. A running instance of the Netifi Proteus Router
+
+    You can start a single node cluster with Docker using the following command:
+    
+        $ docker run -p 8001:8001 -p 7001:7001 -e MEMBERS_ADDRESS=172.17.0.2:7001 -e CLUSTER_PUBLIC_ADDRESS=172.17.0.2:7001 -e CLUSTER_ADDRESS=172.17.0.2 -e ROUTER_ADDRESS=172.17.0.2 netifi/proteus
+    
+    Note the ports that are currently being assigned. You may need to modify them on your machine. If you modify the ports you will need to change them in the [client](/client/src/main/java/io/netifi/proteus/quickstart/client/Main.java) and [service](/service/src/main/java/io/netifi/proteus/quickstart/service/Main.java).
 
 ## Running the Quickstart
 The instructions below start two instances of the example service and requests from the client are automatically load balanced between the service instances.
