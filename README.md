@@ -31,6 +31,10 @@ The instructions below start two instances of the example service and requests f
 
 1. Validate that the Proteus Router is running.
 
+    Check the console for a successful start message:
+    
+        2017-12-03 21:36:04,067 INFO i.n.r.Bootstrap [main] Router started in 2266.12 milliseconds
+
 2. Start the first instance of the service using the following Gradle command:
 
         $ ./gradlew :service:run
