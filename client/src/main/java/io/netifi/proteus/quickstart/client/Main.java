@@ -4,11 +4,14 @@ import io.netifi.proteus.quickstart.service.protobuf.HelloRequest;
 import io.netifi.proteus.quickstart.service.protobuf.HelloServiceClient;
 import io.netifi.sdk.Netifi;
 import io.netifi.sdk.rs.NetifiSocket;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Starts the Proteus Quickstart Client
  */
 public class Main {
+    private static final Logger logger = LogManager.getLogger(Main.class);
 
     public static void main(String... args) {
 
@@ -35,9 +38,9 @@ public class Main {
                 .setName("World")
                 .build();
 
-        System.out.println("Sending 'World' to HelloService...");
+        logger.info("Sending 'World' to HelloService...");
 
         // Call the HelloService
-        System.out.println(client.sayHello(request).block());
+        logger.info(client.sayHello(request).block());
     }
 }
