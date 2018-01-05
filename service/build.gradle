@@ -8,9 +8,8 @@ sourceCompatibility = 1.8
 dependencies {
     compile project(':service-idl')
 
-    compile "io.netifi.proteus:proteus-core:$proteusVersion"
-    compile "io.netifi.sdk:core:$netifiSdkVersion"
-    compile 'com.google.protobuf:protobuf-java:3.4.0'
+    compile "io.netifi.proteus:client:$proteusVersion"
+    compile 'com.google.protobuf:protobuf-java:3.5.0'
 
     compile 'org.apache.logging.log4j:log4j-api:2.8.2'
     compile 'org.apache.logging.log4j:log4j-core:2.8.2'

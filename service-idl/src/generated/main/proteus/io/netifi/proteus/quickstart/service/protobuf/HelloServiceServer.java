@@ -1,13 +1,20 @@
 package io.netifi.proteus.quickstart.service.protobuf;
 
 @javax.annotation.Generated(
-    value = "by Proteus proto compiler (version 0.2.1)",
+    value = "by Proteus proto compiler (version 0.4.1)",
     comments = "Source: io/netifi/proteus/quickstart/service/protobuf/service.proto")
-public final class HelloServiceServer implements io.netifi.proteus.ProteusService {
+public final class HelloServiceServer extends io.netifi.proteus.AbstractProteusService {
   private final HelloService service;
+  private final java.util.function.Function<? super org.reactivestreams.Publisher<io.rsocket.Payload>, ? extends org.reactivestreams.Publisher<io.rsocket.Payload>> sayHello;
 
   public HelloServiceServer(HelloService service) {
     this.service = service;
+    this.sayHello = java.util.function.Function.identity();
+  }
+
+  public HelloServiceServer(HelloService service, io.micrometer.core.instrument.MeterRegistry registry) {
+    this.service = service;
+    this.sayHello = io.netifi.proteus.metrics.ProteusMetrics.timed(registry, "proteus.server", "namespace", "io.netifi.proteus.quickstart.service", "service", "HelloService", "method", "sayHello");
   }
 
   @java.lang.Override
@@ -28,11 +35,11 @@ public final class HelloServiceServer implements io.netifi.proteus.ProteusServic
   @java.lang.Override
   public reactor.core.publisher.Mono<io.rsocket.Payload> requestResponse(io.rsocket.Payload payload) {
     try {
-      io.netty.buffer.ByteBuf metadata = io.netty.buffer.Unpooled.wrappedBuffer(payload.getMetadata());
+      io.netty.buffer.ByteBuf metadata = payload.sliceMetadata();
       switch(io.netifi.proteus.frames.ProteusMetadata.methodId(metadata)) {
         case HelloService.METHOD_SAY_HELLO: {
-          com.google.protobuf.ByteString data = com.google.protobuf.UnsafeByteOperations.unsafeWrap(payload.getData());
-          return service.sayHello(io.netifi.proteus.quickstart.service.protobuf.HelloRequest.parseFrom(data)).map(serializer);
+          com.google.protobuf.CodedInputStream is = com.google.protobuf.CodedInputStream.newInstance(payload.getData());
+          return service.sayHello(io.netifi.proteus.quickstart.service.protobuf.HelloRequest.parseFrom(is), metadata).map(serializer).transform(sayHello);
         }
         default: {
           return reactor.core.publisher.Mono.error(new UnsupportedOperationException());
@@ -40,6 +47,8 @@ public final class HelloServiceServer implements io.netifi.proteus.ProteusServic
       }
     } catch (Throwable t) {
       return reactor.core.publisher.Mono.error(t);
+    } finally {
+      payload.release();
     }
   }
 
@@ -58,31 +67,19 @@ public final class HelloServiceServer implements io.netifi.proteus.ProteusServic
     return reactor.core.publisher.Flux.error(new UnsupportedOperationException("Request-Channel not implemented."));
   }
 
-  @java.lang.Override
-  public reactor.core.publisher.Mono<Void> metadataPush(io.rsocket.Payload payload) {
-    return reactor.core.publisher.Mono.error(new UnsupportedOperationException("Metadata-Push not implemented."));
-  }
-
-  @java.lang.Override
-  public double availability() {
-    return service.availability();
-  }
-
-  @java.lang.Override
-  public reactor.core.publisher.Mono<Void> close() {
-    return service.close();
-  }
-
-  @java.lang.Override
-  public reactor.core.publisher.Mono<Void> onClose() {
-    return service.onClose();
-  }
-
   private static final java.util.function.Function<com.google.protobuf.MessageLite, io.rsocket.Payload> serializer =
     new java.util.function.Function<com.google.protobuf.MessageLite, io.rsocket.Payload>() {
       @java.lang.Override
       public io.rsocket.Payload apply(com.google.protobuf.MessageLite message) {
-        return new io.rsocket.util.PayloadImpl(message.toByteString().asReadOnlyByteBuffer());
+        io.netty.buffer.ByteBuf byteBuf = io.netty.buffer.ByteBufAllocator.DEFAULT.directBuffer(message.getSerializedSize());
+        try {
+          message.writeTo(com.google.protobuf.CodedOutputStream.newInstance(byteBuf.nioBuffer(0, byteBuf.writableBytes())));
+          byteBuf.writerIndex(byteBuf.capacity());
+          return io.rsocket.util.ByteBufPayload.create(byteBuf);
+        } catch (Throwable t) {
+          byteBuf.release();
+          throw new RuntimeException(t);
+        }
       }
     };
 
@@ -91,10 +88,12 @@ public final class HelloServiceServer implements io.netifi.proteus.ProteusServic
       @java.lang.Override
       public T apply(io.rsocket.Payload payload) {
         try {
-          com.google.protobuf.ByteString data = com.google.protobuf.UnsafeByteOperations.unsafeWrap(payload.getData());
-          return parser.parseFrom(data);
+          com.google.protobuf.CodedInputStream is = com.google.protobuf.CodedInputStream.newInstance(payload.getData());
+          return parser.parseFrom(is);
         } catch (Throwable t) {
           throw new RuntimeException(t);
+        } finally {
+          payload.release();
         }
       }
     };

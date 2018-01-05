@@ -1,9 +1,9 @@
 package io.netifi.proteus.quickstart.client;
 
+import io.netifi.proteus.Netifi;
 import io.netifi.proteus.quickstart.service.protobuf.HelloRequest;
 import io.netifi.proteus.quickstart.service.protobuf.HelloServiceClient;
-import io.netifi.sdk.Netifi;
-import io.netifi.sdk.rs.NetifiSocket;
+import io.netifi.proteus.rs.NetifiSocket;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

@@ -3,6 +3,7 @@ package io.netifi.proteus.quickstart.service;
 import io.netifi.proteus.quickstart.service.protobuf.HelloRequest;
 import io.netifi.proteus.quickstart.service.protobuf.HelloResponse;
 import io.netifi.proteus.quickstart.service.protobuf.HelloService;
+import io.netty.buffer.ByteBuf;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import reactor.core.publisher.Mono;
@@ -20,25 +21,10 @@ public class DefaultHelloService implements HelloService {
     }
 
     @Override
-    public Mono<HelloResponse> sayHello(HelloRequest message) {
+    public Mono<HelloResponse> sayHello(HelloRequest message, ByteBuf metadata) {
         logger.info("received a message -> {}", message.getName());
         return Mono.fromCallable(() -> HelloResponse.newBuilder()
                 .setMessage("Hello, " + message.getName() + "! from " + serviceName)
                 .build());
-    }
-
-    @Override
-    public double availability() {
-        return 1.0;
-    }
-
-    @Override
-    public Mono<Void> close() {
-        return Mono.empty();
-    }
-
-    @Override
-    public Mono<Void> onClose() {
-        return Mono.empty();
     }
 }

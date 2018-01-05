@@ -1,7 +1,7 @@
 package io.netifi.proteus.quickstart.service;
 
+import io.netifi.proteus.Netifi;
 import io.netifi.proteus.quickstart.service.protobuf.HelloServiceServer;
-import io.netifi.sdk.Netifi;
 
 import java.util.UUID;
 

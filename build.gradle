@@ -6,8 +6,7 @@ subprojects {
 
     // Proteus Versions
     ext {
-        proteusVersion = '0.2.1'
-        netifiSdkVersion = '0.2.2'
+        proteusVersion = '0.4.1'
     }
 
     repositories {

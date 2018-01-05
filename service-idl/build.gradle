@@ -6,9 +6,8 @@ plugins {
 sourceCompatibility = 1.8
 
 dependencies {
-    compile "io.netifi.proteus:proteus-core:$proteusVersion"
-    compile "io.netifi.sdk:core:$netifiSdkVersion"
-    compile 'com.google.protobuf:protobuf-java:3.4.0'
+    compile "io.netifi.proteus:core:$proteusVersion"
+    compile 'com.google.protobuf:protobuf-java:3.5.0'
 }
 
 sourceSets {
@@ -26,10 +25,10 @@ protobuf {
 
     plugins {
         protoc {
-            artifact = 'com.google.protobuf:protoc:3.4.0'
+            artifact = 'com.google.protobuf:protoc:3.5.0'
         }
         proteus {
-            artifact = 'io.netifi.proteus:proteus-java:0.2.1'
+            artifact = "io.netifi.proteus:protobuf-rpc:$proteusVersion"
         }
         generateProtoTasks {
             ofSourceSet('main')*.plugins {
