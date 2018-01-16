@@ -22,6 +22,7 @@ public class Main {
                         .destination("client1")                         // Name of this client instance
                         .accountId(100)
                         .accessKey(7685465987873703191L)
+                        .minHostsAtStartup(1)
                         .accessToken("PYYgV9XHSJ/3KqgK5wYjz+73MeA=")
                         .host("localhost")                              // Proteus Router Host
                         .port(8001)                                     // Proteus Router Port

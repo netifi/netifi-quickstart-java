@@ -19,6 +19,7 @@ public class Main {
                         .group("quickstart.services.helloservices")     // Group name of service
                         .destination(serviceName)                       // Name of this service instance
                         .accountId(100)
+                        .minHostsAtStartup(1)
                         .accessKey(7685465987873703191L)
                         .accessToken("PYYgV9XHSJ/3KqgK5wYjz+73MeA=")
                         .host("localhost")                              // Proteus Router Host
