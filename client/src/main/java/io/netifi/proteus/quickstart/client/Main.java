@@ -1,9 +1,9 @@
 package io.netifi.proteus.quickstart.client;
 
-import io.netifi.proteus.Netifi;
+import io.netifi.proteus.Proteus;
 import io.netifi.proteus.quickstart.service.protobuf.HelloRequest;
 import io.netifi.proteus.quickstart.service.protobuf.HelloServiceClient;
-import io.netifi.proteus.rs.NetifiSocket;
+import io.netifi.proteus.rsocket.ProteusSocket;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,21 +16,19 @@ public class Main {
     public static void main(String... args) {
 
         // Build Netifi Proteus Connection
-        Netifi netifi =
-                Netifi.builder()
+        Proteus netifi =
+                Proteus.builder()
                         .group("quickstart.clients")                    // Group name of client
                         .destination("client1")                         // Name of this client instance
-                        .accountId(100)
                         .accessKey(7685465987873703191L)
-                        .minHostsAtStartup(1)
                         .accessToken("PYYgV9XHSJ/3KqgK5wYjz+73MeA=")
                         .host("localhost")                              // Proteus Router Host
                         .port(8001)                                     // Proteus Router Port
                         .build();
 
         // Connect to Netifi Proteus Platform
-        NetifiSocket conn = netifi.connect("quickstart.services.helloservices").block();
-
+        ProteusSocket conn = netifi.group("quickstart.services.helloservices");
+        
         // Create Client to Communicate with the HelloService (included example service)
         HelloServiceClient client = new HelloServiceClient(conn);
 

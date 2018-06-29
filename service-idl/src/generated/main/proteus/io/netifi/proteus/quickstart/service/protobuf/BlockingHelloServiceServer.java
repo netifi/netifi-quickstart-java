@@ -5,26 +5,28 @@ package io.netifi.proteus.quickstart.service.protobuf;
     comments = "Source: io/netifi/proteus/quickstart/service/protobuf/service.proto")
 @io.netifi.proteus.annotations.internal.ProteusGenerated(
     type = io.netifi.proteus.annotations.internal.ProteusResourceType.SERVICE,
-    idlClass = HelloService.class)
+    idlClass = BlockingHelloService.class)
 @javax.inject.Named(
-    value ="HelloServiceServer")
-public final class HelloServiceServer extends io.netifi.proteus.AbstractProteusService {
-  private final HelloService service;
+    value ="BlockingHelloServiceServer")
+public final class BlockingHelloServiceServer extends io.netifi.proteus.AbstractProteusService {
+  private final BlockingHelloService service;
+  private final reactor.core.scheduler.Scheduler scheduler;
   private final java.util.function.Function<? super org.reactivestreams.Publisher<io.rsocket.Payload>, ? extends org.reactivestreams.Publisher<io.rsocket.Payload>> sayHello;
   @javax.inject.Inject
-  public HelloServiceServer(HelloService service, java.util.Optional<io.micrometer.core.instrument.MeterRegistry> registry) {
+  public BlockingHelloServiceServer(BlockingHelloService service, java.util.Optional<reactor.core.scheduler.Scheduler> scheduler, java.util.Optional<io.micrometer.core.instrument.MeterRegistry> registry) {
+    this.scheduler = scheduler.orElse(reactor.core.scheduler.Schedulers.elastic());
     this.service = service;
     if (!registry.isPresent()) {
       this.sayHello = java.util.function.Function.identity();
     } else {
-      this.sayHello = io.netifi.proteus.metrics.ProteusMetrics.timed(registry.get(), "proteus.server", "service", HelloService.SERVICE, "method", HelloService.METHOD_SAY_HELLO);
+      this.sayHello = io.netifi.proteus.metrics.ProteusMetrics.timed(registry.get(), "proteus.server", "service", BlockingHelloService.SERVICE_ID, "method", BlockingHelloService.METHOD_SAY_HELLO);
     }
 
   }
 
   @java.lang.Override
   public String getService() {
-    return HelloService.SERVICE;
+    return BlockingHelloService.SERVICE_ID;
   }
 
   @java.lang.Override
@@ -44,7 +46,8 @@ public final class HelloServiceServer extends io.netifi.proteus.AbstractProteusS
       switch(io.netifi.proteus.frames.ProteusMetadata.getMethod(metadata)) {
         case HelloService.METHOD_SAY_HELLO: {
           com.google.protobuf.CodedInputStream is = com.google.protobuf.CodedInputStream.newInstance(payload.getData());
-          return service.sayHello(io.netifi.proteus.quickstart.service.protobuf.HelloRequest.parseFrom(is), metadata).map(serializer).transform(sayHello);
+          io.netifi.proteus.quickstart.service.protobuf.HelloRequest message = io.netifi.proteus.quickstart.service.protobuf.HelloRequest.parseFrom(is);
+          return reactor.core.publisher.Mono.fromSupplier(() -> service.sayHello(message, metadata)).map(serializer).transform(sayHello).subscribeOn(scheduler);
         }
         default: {
           return reactor.core.publisher.Mono.error(new UnsupportedOperationException());
