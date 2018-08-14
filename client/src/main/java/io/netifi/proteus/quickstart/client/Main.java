@@ -6,6 +6,9 @@ import io.netifi.proteus.quickstart.service.protobuf.HelloServiceClient;
 import io.netifi.proteus.rsocket.ProteusSocket;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import reactor.core.publisher.Flux;
+
+import java.time.Duration;
 
 /**
  * Starts the Proteus Quickstart Client
@@ -31,15 +34,21 @@ public class Main {
         
         // Create Client to Communicate with the HelloService (included example service)
         HelloServiceClient client = new HelloServiceClient(conn);
-
-        // Create Request to HelloService
-        HelloRequest request = HelloRequest.newBuilder()
-                .setName("World")
-                .build();
-
-        logger.info("Sending 'World' to HelloService...");
-
-        // Call the HelloService
-        logger.info(client.sayHello(request).block());
+        
+        Flux.interval(Duration.ofSeconds(1)) // emit tick ever second
+            .onBackpressureBuffer() // buffer ticks on back-pressure
+            .flatMap(
+                l -> {
+                    String name = "World-" + l;
+                    // Create Request to HelloService
+                    HelloRequest request = HelloRequest.newBuilder().setName(name).build();
+                
+                    logger.info("Sending '{}' to HelloService...", name);
+                    return client.sayHello(request).doOnNext(response -> {
+                        logger.info("Got response '{}'", response.getMessage());
+                    });
+                }, 1) // allow one at a lime
+            .doOnError(t -> t.printStackTrace())
+            .blockLast();
     }
 }
