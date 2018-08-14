@@ -17,10 +17,10 @@ public class Main {
         Proteus.builder()
             .group("quickstart.services.helloservices") // Group name of service
             .destination(serviceName)
-            .accessKey(7685465987873703191L)
-            .accessToken("PYYgV9XHSJ/3KqgK5wYjz+73MeA=")
-            .host("localhost") // Proteus Router Host
-            .port(8001) // Proteus Router Port
+            .accessKey(9007199254740991L)
+            .accessToken("kTBDVtfRBO4tHOnZzSyY5ym2kfY=")
+            .host("localhost") // Proteus Broker Host
+            .port(8001) // Proteus Broker Port
             .build();
 
     // Add Service to Respond to Requests

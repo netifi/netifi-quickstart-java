@@ -20,10 +20,10 @@ public class Main {
                 Proteus.builder()
                         .group("quickstart.clients")                    // Group name of client
                         .destination("client1")                         // Name of this client instance
-                        .accessKey(7685465987873703191L)
-                        .accessToken("PYYgV9XHSJ/3KqgK5wYjz+73MeA=")
-                        .host("localhost")                              // Proteus Router Host
-                        .port(8001)                                     // Proteus Router Port
+                        .accessKey(9007199254740991L)
+                        .accessToken("kTBDVtfRBO4tHOnZzSyY5ym2kfY=")
+                        .host("localhost")                              // Proteus Broker Host
+                        .port(8001)                                     // Proteus Broker Port
                         .build();
 
         // Connect to Netifi Proteus Platform

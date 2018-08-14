@@ -10,7 +10,7 @@ The project comes with a simple client and service. The client sends the word `W
 For bugs, questions and discussions please use the [Github Issues](https://github.com/netifi/proteus-quickstart/issues).
 
 ## License
-Copyright 2017 Netifi Inc.
+Copyright 2018 Netifi Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
