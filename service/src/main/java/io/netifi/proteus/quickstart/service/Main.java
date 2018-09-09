@@ -24,7 +24,7 @@ public class Main {
             .build();
 
     // Add Service to Respond to Requests
-    netifi.addService(new HelloServiceServer(new DefaultHelloService(serviceName), Optional.empty()));
+    netifi.addService(new HelloServiceServer(new DefaultHelloService(serviceName), Optional.empty(), Optional.empty()));
 
     // Connect to Netifi Proteus Platform
     netifi.group("quickstart.services.helloservices");
