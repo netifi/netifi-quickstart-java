@@ -1,0 +1,1 @@
+cd .. && ./gradlew service:run

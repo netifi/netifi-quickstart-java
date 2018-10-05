@@ -1,0 +1,1 @@
+cd .. && ./gradlew client:run
