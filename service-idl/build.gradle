@@ -23,10 +23,11 @@ sourceSets {
 protobuf {
     generatedFilesBaseDir = "${projectDir}/src/generated"
 
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.6.0'
+    }
+
     plugins {
-        protoc {
-            artifact = 'com.google.protobuf:protoc:3.6.0'
-        }
         rsocketRpc {
             artifact = "io.rsocket.rpc:rsocket-rpc-protobuf:$rsocketRpcVersion"
         }
