@@ -6,10 +6,14 @@ subprojects {
 
     // Proteus Versions
     ext {
-        proteusVersion = '0.8.9'
+        proteusVersion = '0.9.0'
+        rsocketRpcVersion = '0.2.0'
     }
 
     repositories {
         jcenter()
+        maven {
+            url 'https://dl.bintray.com/netifi/netifi-oss/'
+        }
     }
 }
