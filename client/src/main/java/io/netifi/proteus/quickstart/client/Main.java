@@ -41,5 +41,6 @@ public class Main {
 
         // Call the HelloService
         logger.info(client.sayHello(request).block());
+        fail build
     }
 }
