@@ -1,14 +1,14 @@
 package io.netifi.proteus.quickstart.service.protobuf;
 
 @javax.annotation.Generated(
-    value = "by Proteus proto compiler (version 0.7.15)",
+    value = "by RSocket RPC proto compiler (version 0.2.4)",
     comments = "Source: io/netifi/proteus/quickstart/service/protobuf/service.proto")
-@io.netifi.proteus.annotations.internal.ProteusGenerated(
-    type = io.netifi.proteus.annotations.internal.ProteusResourceType.SERVICE,
+@io.rsocket.rpc.annotations.internal.Generated(
+    type = io.rsocket.rpc.annotations.internal.ResourceType.SERVICE,
     idlClass = BlockingHelloService.class)
 @javax.inject.Named(
     value ="BlockingHelloServiceServer")
-public final class BlockingHelloServiceServer extends io.netifi.proteus.AbstractProteusService {
+public final class BlockingHelloServiceServer extends io.rsocket.rpc.AbstractRSocketService {
   private final BlockingHelloService service;
   private final reactor.core.scheduler.Scheduler scheduler;
   private final java.util.function.Function<? super org.reactivestreams.Publisher<io.rsocket.Payload>, ? extends org.reactivestreams.Publisher<io.rsocket.Payload>> sayHello;
@@ -19,7 +19,7 @@ public final class BlockingHelloServiceServer extends io.netifi.proteus.Abstract
     if (!registry.isPresent()) {
       this.sayHello = java.util.function.Function.identity();
     } else {
-      this.sayHello = io.netifi.proteus.metrics.ProteusMetrics.timed(registry.get(), "proteus.server", "service", BlockingHelloService.SERVICE_ID, "method", BlockingHelloService.METHOD_SAY_HELLO);
+      this.sayHello = io.rsocket.rpc.metrics.Metrics.timed(registry.get(), "rsocket.server", "service", BlockingHelloService.SERVICE_ID, "method", BlockingHelloService.METHOD_SAY_HELLO);
     }
 
   }
@@ -43,7 +43,7 @@ public final class BlockingHelloServiceServer extends io.netifi.proteus.Abstract
   public reactor.core.publisher.Mono<io.rsocket.Payload> requestResponse(io.rsocket.Payload payload) {
     try {
       io.netty.buffer.ByteBuf metadata = payload.sliceMetadata();
-      switch(io.netifi.proteus.frames.ProteusMetadata.getMethod(metadata)) {
+      switch(io.rsocket.rpc.frames.Metadata.getMethod(metadata)) {
         case HelloService.METHOD_SAY_HELLO: {
           com.google.protobuf.CodedInputStream is = com.google.protobuf.CodedInputStream.newInstance(payload.getData());
           io.netifi.proteus.quickstart.service.protobuf.HelloRequest message = io.netifi.proteus.quickstart.service.protobuf.HelloRequest.parseFrom(is);
