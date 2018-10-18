@@ -1,10 +1,10 @@
 package io.netifi.proteus.quickstart.service.protobuf;
 
 @javax.annotation.Generated(
-    value = "by Proteus proto compiler (version 0.7.15)",
+    value = "by RSocket RPC proto compiler (version 0.2.4)",
     comments = "Source: io/netifi/proteus/quickstart/service/protobuf/service.proto")
-@io.netifi.proteus.annotations.internal.ProteusGenerated(
-    type = io.netifi.proteus.annotations.internal.ProteusResourceType.CLIENT,
+@io.rsocket.rpc.annotations.internal.Generated(
+    type = io.rsocket.rpc.annotations.internal.ResourceType.CLIENT,
     idlClass = BlockingHelloService.class)
 public final class BlockingHelloServiceClient implements BlockingHelloService {
   private final io.netifi.proteus.quickstart.service.protobuf.HelloServiceClient delegate;
@@ -17,11 +17,13 @@ public final class BlockingHelloServiceClient implements BlockingHelloService {
     this.delegate = new io.netifi.proteus.quickstart.service.protobuf.HelloServiceClient(rSocket, registry);
   }
 
+  @io.rsocket.rpc.annotations.internal.GeneratedMethod(returnTypeClass = io.netifi.proteus.quickstart.service.protobuf.HelloResponse.class)
   public io.netifi.proteus.quickstart.service.protobuf.HelloResponse sayHello(io.netifi.proteus.quickstart.service.protobuf.HelloRequest message) {
     return sayHello(message, io.netty.buffer.Unpooled.EMPTY_BUFFER);
   }
 
   @java.lang.Override
+  @io.rsocket.rpc.annotations.internal.GeneratedMethod(returnTypeClass = io.netifi.proteus.quickstart.service.protobuf.HelloResponse.class)
   public io.netifi.proteus.quickstart.service.protobuf.HelloResponse sayHello(io.netifi.proteus.quickstart.service.protobuf.HelloRequest message, io.netty.buffer.ByteBuf metadata) {
     return delegate.sayHello(message, metadata).block();
   }
