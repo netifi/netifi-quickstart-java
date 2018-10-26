@@ -3,7 +3,7 @@ package io.netifi.proteus.quickstart.service.protobuf;
 /**
  */
 @javax.annotation.Generated(
-    value = "by Proteus proto compiler (version 0.7.15)",
+    value = "by RSocket RPC proto compiler",
     comments = "Source: io/netifi/proteus/quickstart/service/protobuf/service.proto")
 public interface HelloService {
   String SERVICE = "io.netifi.proteus.quickstart.service.HelloService";
