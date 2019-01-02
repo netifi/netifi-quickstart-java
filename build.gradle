@@ -7,7 +7,7 @@ subprojects {
     // Proteus Versions
     ext {
         proteusVersion = '1.5.3'
-        rsocketRpcVersion = '0.2.10'
+        rsocketRpcVersion = '0.2.12'
     }
 
     repositories {
