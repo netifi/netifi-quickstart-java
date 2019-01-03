@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.netifi.proteus.quickstart</groupId>
     <artifactId>proteus-quickstart</artifactId>
-    <version>1.5.0</version>
+    <version>1.5.3</version>
     <packaging>pom</packaging>
     <name>multi</name>
 
@@ -16,10 +16,10 @@
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <proteusVersion>1.5.0</proteusVersion>
-        <rsocketRpcVersion>0.2.4</rsocketRpcVersion>
-        <protobufVersion>3.6.0</protobufVersion>
-        <log4j2Version>2.9.0</log4j2Version>
+        <proteusVersion>1.5.3</proteusVersion>
+        <rsocketRpcVersion>0.2.12</rsocketRpcVersion>
+        <protobufVersion>3.6.1</protobufVersion>
+        <log4j2Version>2.9.1</log4j2Version>
     </properties>
 
     <repositories>
