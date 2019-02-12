@@ -6,19 +6,19 @@
     <parent>
         <groupId>io.netifi.proteus.quickstart</groupId>
         <artifactId>proteus-quickstart</artifactId>
-        <version>1.5.3</version>
+        <version>1.5.5</version>
     </parent>
 
     <artifactId>service</artifactId>
     <name>service</name>
-    <version>1.5.3</version>
+    <version>1.5.5</version>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>io.netifi.proteus.quickstart</groupId>
             <artifactId>service-idl</artifactId>
-            <version>1.5.3</version>
+            <version>1.5.5</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

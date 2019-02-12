@@ -16,7 +16,7 @@
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <proteusVersion>1.5.3</proteusVersion>
+        <proteusVersion>1.5.5</proteusVersion>
         <rsocketRpcVersion>0.2.12</rsocketRpcVersion>
         <protobufVersion>3.6.1</protobufVersion>
         <log4j2Version>2.9.1</log4j2Version>
