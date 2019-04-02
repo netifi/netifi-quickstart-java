@@ -3,7 +3,6 @@ package io.netifi.proteus.quickstart.service;
 import io.netifi.proteus.Proteus;
 import io.netifi.proteus.common.tags.Tags;
 import io.netifi.proteus.quickstart.service.protobuf.HelloServiceServer;
-
 import java.util.Optional;
 import java.util.UUID;
 
@@ -22,11 +21,13 @@ public class Main {
             .accessToken("kTBDVtfRBO4tHOnZzSyY5ym2kfY=")
             .host("localhost") // Proteus Broker Host
             .port(8001) // Proteus Broker Port
-            .disableSsl()                                   // Disabled for parity with Javascript Tutorial
+            .disableSsl() // Disabled for parity with Javascript Tutorial
             .build();
 
     // Add Service to Respond to Requests
-    netifi.addService(new HelloServiceServer(new DefaultHelloService(serviceName), Optional.empty(), Optional.empty()));
+    netifi.addService(
+        new HelloServiceServer(
+            new DefaultHelloService(serviceName), Optional.empty(), Optional.empty()));
 
     // Connect to Netifi Proteus Platform
     netifi.groupServiceSocket("quickstart.services.helloservices", Tags.empty());
