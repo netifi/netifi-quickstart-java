@@ -25,6 +25,7 @@ public class Main {
                         .accessToken("kTBDVtfRBO4tHOnZzSyY5ym2kfY=")
                         .host("localhost")                              // Proteus Broker Host
                         .port(8001)                                     // Proteus Broker Port
+                        .disableSsl()                                   // Disabled for parity with Javascript Tutorial
                         .build();
 
         // Connect to Netifi Proteus Platform
