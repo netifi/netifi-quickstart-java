@@ -7,62 +7,22 @@
     <parent>
         <groupId>io.netifi.proteus.quickstart</groupId>
         <artifactId>proteus-quickstart</artifactId>
-        <version>1.5.5</version>
+        <version>1.6.0</version>
     </parent>
 
     <artifactId>service-idl</artifactId>
     <name>service-idl</name>
-    <version>1.5.5</version>
+    <version>1.6.0</version>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>io.netifi.proteus</groupId>
-            <artifactId>proteus-client</artifactId>
-            <version>${proteusVersion}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.netifi.proteus</groupId>
-            <artifactId>proteus-metrics-micrometer</artifactId>
-            <version>${proteusVersion}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.rsocket.rpc</groupId>
-                    <artifactId>rsocket-rpc-protobuf</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>io.netifi.proteus</groupId>
-            <artifactId>proteus-tracing-openzipkin</artifactId>
-            <version>${proteusVersion}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.rsocket.rpc</groupId>
-                    <artifactId>rsocket-rpc-protobuf</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-            <version>1</version>
-        </dependency>
-        <dependency>
             <groupId>io.rsocket.rpc</groupId>
             <artifactId>rsocket-rpc-core</artifactId>
-            <version>${rsocketRpcVersion}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.rsocket.rpc</groupId>
-                    <artifactId>rsocket-rpc-protobuf</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
-            <version>${protobufVersion}</version>
         </dependency>
     </dependencies>
 
@@ -71,7 +31,7 @@
             <extension>
                 <groupId>kr.motd.maven</groupId>
                 <artifactId>os-maven-plugin</artifactId>
-                <version>1.5.0.Final</version>
+                <version>1.6.2</version>
             </extension>
         </extensions>
         <plugins>
@@ -96,7 +56,7 @@
             <plugin>
                 <groupId>org.xolstice.maven.plugins</groupId>
                 <artifactId>protobuf-maven-plugin</artifactId>
-                <version>0.5.1</version>
+                <version>0.6.1</version>
                 <configuration>
                     <protocArtifact>
                         com.google.protobuf:protoc:${protobufVersion}:exe:${os.detected.classifier}

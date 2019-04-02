@@ -6,14 +6,14 @@ plugins {
 sourceCompatibility = 1.8
 
 dependencies {
-    compile project(':service-idl')
+    implementation project(':service-idl')
 
-    compile "io.netifi.proteus:proteus-client:$proteusVersion"
-    compile "com.google.protobuf:protobuf-java:$protobufVersion"
+    implementation "io.netifi.proteus:proteus-client"
+    implementation "com.google.protobuf:protobuf-java"
 
-    compile "org.apache.logging.log4j:log4j-api:$log4jVersion"
-    compile "org.apache.logging.log4j:log4j-core:$log4jVersion"
-    compile "org.apache.logging.log4j:log4j-slf4j-impl:$log4jVersion"
+    implementation "org.apache.logging.log4j:log4j-api"
+    implementation "org.apache.logging.log4j:log4j-core"
+    implementation "org.apache.logging.log4j:log4j-slf4j18-impl"
 }
 
 mainClassName = 'io.netifi.proteus.quickstart.service.Main'

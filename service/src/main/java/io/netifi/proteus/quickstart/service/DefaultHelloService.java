@@ -8,23 +8,23 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import reactor.core.publisher.Mono;
 
-/**
- * Service that returns a hello message.
- */
+/** Service that returns a hello message. */
 public class DefaultHelloService implements HelloService {
-    private static final Logger logger = LogManager.getLogger(DefaultHelloService.class);
+  private static final Logger logger = LogManager.getLogger(DefaultHelloService.class);
 
-    private final String serviceName;
+  private final String serviceName;
 
-    public DefaultHelloService(final String serviceName) {
-        this.serviceName = serviceName;
-    }
+  public DefaultHelloService(final String serviceName) {
+    this.serviceName = serviceName;
+  }
 
-    @Override
-    public Mono<HelloResponse> sayHello(HelloRequest message, ByteBuf metadata) {
-        logger.info("received a message -> {}", message.getName());
-        return Mono.fromCallable(() -> HelloResponse.newBuilder()
+  @Override
+  public Mono<HelloResponse> sayHello(HelloRequest message, ByteBuf metadata) {
+    logger.info("received a message -> {}", message.getName());
+    return Mono.fromCallable(
+        () ->
+            HelloResponse.newBuilder()
                 .setMessage("Hello, " + message.getName() + "! from " + serviceName)
                 .build());
-    }
+  }
 }

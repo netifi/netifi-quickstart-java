@@ -1,15 +1,20 @@
+plugins {
+    id "io.spring.dependency-management" version "1.0.7.RELEASE" apply false
+}
+
 subprojects {
     apply plugin: 'idea'
+    apply plugin: 'io.spring.dependency-management'
 
     group 'io.netifi.proteus.quickstart'
-    version '1.5.3'
+    version '1.6.0'
 
-    // Proteus Versions
-    ext {
-        protobufVersion = '3.6.1'
-        proteusVersion = '1.5.5'
-        rsocketRpcVersion = '0.2.12'
-        log4jVersion = '2.9.1'
+    dependencyManagement {
+        imports {
+            mavenBom "io.netifi.proteus:proteus-rsocket-bom:1.6.0"
+            mavenBom "io.netifi.proteus:proteus-bom:1.6.0"
+            mavenBom "io.netifi.proteus:proteus-common-dependencies:1.6.0"
+        }
     }
 
     repositories {
