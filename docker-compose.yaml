@@ -1,0 +1,22 @@
+
+version: '3.7'
+
+services:
+  broker1:
+    image: netifi/proteus:1.6.0
+    restart: always
+    networks:
+      - netifi
+    environment:
+      BROKER_SERVER_OPTS: >
+        '-Dnetifi.authentication.0.accessKey=9007199254740991'
+        '-Dnetifi.authentication.0.accessToken=kTBDVtfRBO4tHOnZzSyY5ym2kfY='
+        '-Dnetifi.broker.admin.accessKey=9007199254740991'
+        '-Dnetifi.broker.admin.accessToken=kTBDVtfRBO4tHOnZzSyY5ym2kfY='
+        '-Dnetifi.broker.console.enabled=true'
+    ports:
+      - "7001:7001"
+      - "8001:8001"
+      - "9000:9000"
+networks:
+  netifi:
