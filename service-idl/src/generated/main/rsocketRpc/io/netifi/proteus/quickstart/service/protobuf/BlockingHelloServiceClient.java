@@ -1,7 +1,7 @@
 package io.netifi.proteus.quickstart.service.protobuf;
 
 @javax.annotation.Generated(
-    value = "by RSocket RPC proto compiler (version 0.2.12)",
+    value = "by RSocket RPC proto compiler (version 0.2.13.3)",
     comments = "Source: io/netifi/proteus/quickstart/service/protobuf/service.proto")
 @io.rsocket.rpc.annotations.internal.Generated(
     type = io.rsocket.rpc.annotations.internal.ResourceType.CLIENT,

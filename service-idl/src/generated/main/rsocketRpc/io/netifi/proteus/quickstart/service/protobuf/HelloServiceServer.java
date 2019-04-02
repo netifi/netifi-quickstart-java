@@ -24,7 +24,7 @@ public final class HelloServiceServer extends io.rsocket.rpc.AbstractRSocketServ
 
     if (!tracer.isPresent()) {
       this.tracer = null;
-      this.sayHelloTrace = io.rsocket.rpc.tracing.Tracing.traceAsChild();
+      this.sayHelloTrace = (ignored) -> java.util.function.Function.identity();
     } else {
       this.tracer = tracer.get();
       this.sayHelloTrace = io.rsocket.rpc.tracing.Tracing.traceAsChild(this.tracer, HelloService.METHOD_SAY_HELLO, io.rsocket.rpc.tracing.Tag.of("rsocket.service", HelloService.SERVICE), io.rsocket.rpc.tracing.Tag.of("rsocket.rpc.role", "server"), io.rsocket.rpc.tracing.Tag.of("rsocket.rpc.version", ""));
@@ -74,7 +74,7 @@ public final class HelloServiceServer extends io.rsocket.rpc.AbstractRSocketServ
   }
 
   @java.lang.Override
-  public reactor.core.publisher.Flux<io.rsocket.Payload> requestChannel(io.rsocket.Payload payload, reactor.core.publisher.Flux<io.rsocket.Payload> publisher) {
+  public reactor.core.publisher.Flux<io.rsocket.Payload> requestChannel(io.rsocket.Payload payload, org.reactivestreams.Publisher<io.rsocket.Payload> publisher) {
     return reactor.core.publisher.Flux.error(new UnsupportedOperationException("Request-Channel not implemented."));
   }
 

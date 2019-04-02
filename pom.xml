@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.netifi.proteus.quickstart</groupId>
     <artifactId>proteus-quickstart</artifactId>
-    <version>1.5.5</version>
+    <version>1.6.0</version>
     <packaging>pom</packaging>
     <name>multi</name>
 
@@ -16,11 +16,35 @@
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <proteusVersion>1.5.5</proteusVersion>
-        <rsocketRpcVersion>0.2.12</rsocketRpcVersion>
         <protobufVersion>3.6.1</protobufVersion>
-        <log4j2Version>2.9.1</log4j2Version>
+        <rsocketRpcVersion>0.2.13.3</rsocketRpcVersion>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.netifi.proteus</groupId>
+                <artifactId>proteus-rsocket-bom</artifactId>
+                <version>1.6.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.netifi.proteus</groupId>
+                <artifactId>proteus-bom</artifactId>
+                <version>1.6.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.netifi.proteus</groupId>
+                <artifactId>proteus-common-dependencies</artifactId>
+                <version>1.6.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <repositories>
         <repository>

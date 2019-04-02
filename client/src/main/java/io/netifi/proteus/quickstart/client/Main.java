@@ -1,6 +1,7 @@
 package io.netifi.proteus.quickstart.client;
 
 import io.netifi.proteus.Proteus;
+import io.netifi.proteus.common.tags.Tags;
 import io.netifi.proteus.quickstart.service.protobuf.HelloRequest;
 import io.netifi.proteus.quickstart.service.protobuf.HelloServiceClient;
 import io.netifi.proteus.rsocket.ProteusSocket;
@@ -17,7 +18,7 @@ public class Main {
 
         // Build Netifi Proteus Connection
         Proteus netifi =
-                Proteus.builder()
+                Proteus.tcp()
                         .group("quickstart.clients")                    // Group name of client
                         .destination("client1")                         // Name of this client instance
                         .accessKey(9007199254740991L)
@@ -27,7 +28,8 @@ public class Main {
                         .build();
 
         // Connect to Netifi Proteus Platform
-        ProteusSocket conn = netifi.group("quickstart.services.helloservices");
+        ProteusSocket conn = netifi.groupServiceSocket("quickstart.services.helloservices",
+            Tags.empty());
         
         // Create Client to Communicate with the HelloService (included example service)
         HelloServiceClient client = new HelloServiceClient(conn);

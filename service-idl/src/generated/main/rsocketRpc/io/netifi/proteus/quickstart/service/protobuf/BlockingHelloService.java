@@ -3,7 +3,7 @@ package io.netifi.proteus.quickstart.service.protobuf;
 /**
  */
 @javax.annotation.Generated(
-    value = "by RSocket RPC proto compiler (version 0.2.12)",
+    value = "by RSocket RPC proto compiler (version 0.2.13.3)",
     comments = "Source: io/netifi/proteus/quickstart/service/protobuf/service.proto")
 public interface BlockingHelloService {
   String SERVICE_ID = "io.netifi.proteus.quickstart.service.HelloService";
