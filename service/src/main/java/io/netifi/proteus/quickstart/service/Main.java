@@ -2,6 +2,8 @@ package io.netifi.proteus.quickstart.service;
 
 import io.netifi.proteus.Proteus;
 import io.netifi.proteus.common.tags.Tags;
+import io.netifi.proteus.discovery.StaticListDiscoveryConfig;
+import io.netifi.proteus.discovery.StaticListDiscoveryStrategy;
 import io.netifi.proteus.quickstart.service.protobuf.HelloServiceServer;
 import java.util.Optional;
 import java.util.UUID;
@@ -19,8 +21,8 @@ public class Main {
             .destination(serviceName)
             .accessKey(9007199254740991L)
             .accessToken("kTBDVtfRBO4tHOnZzSyY5ym2kfY=")
-            .host("localhost") // Proteus Broker Host
-            .port(8001) // Proteus Broker Port
+            .discoveryStrategy(
+                new StaticListDiscoveryStrategy(new StaticListDiscoveryConfig(8001, "localhost")))
             .disableSsl() // Disabled for parity with Javascript Tutorial
             .build();
 
