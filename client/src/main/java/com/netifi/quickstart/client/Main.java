@@ -5,8 +5,10 @@ import com.netifi.broker.rsocket.BrokerSocket;
 import com.netifi.common.tags.Tags;
 import com.netifi.quickstart.service.protobuf.HelloRequest;
 import com.netifi.quickstart.service.protobuf.HelloServiceClient;
+import java.time.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import reactor.core.publisher.Flux;
 
 /** Starts the Netifi Quickstart Client */
 public class Main {
@@ -33,12 +35,21 @@ public class Main {
     // Create Client to Communicate with the HelloService (included example service)
     HelloServiceClient client = new HelloServiceClient(conn);
 
-    // Create Request to HelloService
-    HelloRequest request = HelloRequest.newBuilder().setName("World").build();
-
-    logger.info("Sending 'World' to HelloService...");
-
     // Call the HelloService
-    logger.info(client.sayHello(request).block());
+    Flux.interval(Duration.ofSeconds(1)) // emit tick ever second
+        .onBackpressureBuffer() // buffer ticks on back-pressure
+        .flatMap(
+            intervalCounter -> {
+              String name = "World-" + intervalCounter;
+              HelloRequest request = HelloRequest.newBuilder().setName(name).build();
+
+              logger.info("Sending '{}' to HelloService...", name);
+              return client
+                  .sayHello(request)
+                  .doOnNext(response -> logger.info("Got response '{}'", response.getMessage()));
+            },
+            1) // allow one at a lime
+        .doOnError(Throwable::printStackTrace)
+        .blockLast();
   }
 }
