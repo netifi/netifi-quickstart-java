@@ -59,11 +59,11 @@
                 <version>0.6.1</version>
                 <configuration>
                     <protocArtifact>
-                        com.google.protobuf:protoc:${protobufVersion}:exe:${os.detected.classifier}
+                        com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}
                     </protocArtifact>
                     <pluginId>rsocketRpc</pluginId>
                     <pluginArtifact>
-                        io.rsocket.rpc:rsocket-rpc-protobuf:${rsocketRpcVersion}:exe:${os.detected.classifier}
+                        io.rsocket.rpc:rsocket-rpc-protobuf:${rsocket.rpc.version}:exe:${os.detected.classifier}
                     </pluginArtifact>
                 </configuration>
                 <executions>
