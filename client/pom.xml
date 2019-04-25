@@ -6,12 +6,12 @@
     <parent>
         <groupId>io.netifi.proteus.quickstart</groupId>
         <artifactId>proteus-quickstart</artifactId>
-        <version>1.6.0</version>
+        <version>1.6.1</version>
     </parent>
 
     <artifactId>client</artifactId>
     <name>client</name>
-    <version>1.6.0</version>
+    <version>1.6.1</version>
     <packaging>jar</packaging>
 
     <dependencies>
@@ -51,6 +51,7 @@
                 <version>1.6.0</version>
                 <configuration>
                     <mainClass>io.netifi.proteus.quickstart.client.Main</mainClass>
+                    <cleanupDaemonThreads>false</cleanupDaemonThreads>
                 </configuration>
             </plugin>
         </plugins>
