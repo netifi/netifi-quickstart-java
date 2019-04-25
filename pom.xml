@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.netifi.proteus.quickstart</groupId>
     <artifactId>proteus-quickstart</artifactId>
-    <version>1.6.0</version>
+    <version>1.6.1</version>
     <packaging>pom</packaging>
     <name>multi</name>
 
@@ -16,32 +16,49 @@
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <protobufVersion>3.6.1</protobufVersion>
-        <rsocketRpcVersion>0.2.13.3</rsocketRpcVersion>
+        <log4j2.version>2.11.2</log4j2.version>
+        <proteus.bom.version>1.6.1</proteus.bom.version>
+        <protobuf.version>3.6.1</protobuf.version>
+        <rsocket.version>0.11.17.2</rsocket.version>
+        <rsocket.rpc.version>0.2.13.3</rsocket.rpc.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>io.netifi.proteus</groupId>
-                <artifactId>proteus-rsocket-bom</artifactId>
-                <version>1.6.0</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>io.netifi.proteus</groupId>
                 <artifactId>proteus-bom</artifactId>
-                <version>1.6.0</version>
+                <version>${proteus.bom.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>io.netifi.proteus</groupId>
-                <artifactId>proteus-common-dependencies</artifactId>
-                <version>1.6.0</version>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-bom</artifactId>
+                <version>${log4j2.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>${protobuf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.rsocket</groupId>
+                <artifactId>rsocket-core</artifactId>
+                <version>${rsocket.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.rsocket</groupId>
+                <artifactId>rsocket-transport-netty</artifactId>
+                <version>${rsocket.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.rsocket.rpc</groupId>
+                <artifactId>rsocket-rpc-core</artifactId>
+                <version>${rsocket.rpc.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
