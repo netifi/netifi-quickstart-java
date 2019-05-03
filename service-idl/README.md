@@ -7,4 +7,4 @@ Define the interface for your service using ProtoBuf IDL in the `src/main/proto`
 An example service interface has been provided for you: https://github.com/netifi/netifi-quickstart-java/blob/master/service-idl/src/main/proto/com/netifi/quickstart/service/protobuf/service.proto
 
 ## Documentation
-Documentation on the IDL format can be found here: http://proteus-java.readthedocs.io/en/latest/
+Documentation on the IDL format can be found here: https://developers.google.com/protocol-buffers/docs/encoding
