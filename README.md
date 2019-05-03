@@ -1,14 +1,14 @@
-# proteus-quickstart
+# netifi-quickstart-java
 [![Join the chat at https://gitter.im/netifi/general](https://badges.gitter.im/netifi/general.svg)](https://gitter.im/netifi/general)
 
-Source code for the [Proteus Java QuickStart](https://www.netifi.com/getstarted-java).
+Source code for the [Netifi Java QuickStart](https://www.netifi.com/getstarted-java).
 
-This project provides a scaffolding for getting up and running quickly with [Netifi Proteus](http://www.netifi.com/proteus.html).
+This project provides a scaffolding for getting up and running quickly with [Netifi](http://www.netifi.com/).
 
 The project comes with a simple client and service. The client sends the word `World` to the service and the service responds with the message `Hello, World! from {service name}`.
 
 ## Bugs and Feedback
-For bugs, questions, and discussions please use the [Github Issues](https://github.com/netifi/proteus-quickstart/issues).
+For bugs, questions, and discussions please use the [Github Issues](https://github.com/netifi/netifi-quickstart-java/issues).
 
 ## License
 Copyright 2018 [Netifi Inc.](https://www.netifi.com)

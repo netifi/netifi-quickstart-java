@@ -8,7 +8,7 @@ subprojects {
 
     dependencyManagement {
         imports {
-            mavenBom "io.netifi.proteus:proteus-bom:${proteusBomVersion}"
+            mavenBom "com.netifi:netifi-bom:${netifiBomVersion}"
             mavenBom "org.apache.logging.log4j:log4j-bom:${log4j2Version}"
         }
 
@@ -24,8 +24,6 @@ subprojects {
 
     repositories {
         jcenter()
-        maven {
-            url 'https://dl.bintray.com/netifi/netifi-oss/'
-        }
+        mavenCentral()
     }
 }

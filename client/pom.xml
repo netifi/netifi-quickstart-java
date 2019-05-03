@@ -4,26 +4,26 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.netifi.proteus.quickstart</groupId>
-        <artifactId>proteus-quickstart</artifactId>
-        <version>1.6.1</version>
+        <groupId>com.netifi.quickstart</groupId>
+        <artifactId>netifi-quickstart-java</artifactId>
+        <version>1.6.2</version>
     </parent>
 
     <artifactId>client</artifactId>
     <name>client</name>
-    <version>1.6.1</version>
+    <version>1.6.2</version>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>io.netifi.proteus.quickstart</groupId>
+            <groupId>com.netifi.quickstart</groupId>
             <artifactId>service-idl</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>io.netifi.proteus</groupId>
-            <artifactId>proteus-client</artifactId>
+            <groupId>com.netifi</groupId>
+            <artifactId>netifi-broker-client</artifactId>
         </dependency>
         <dependency>
             <groupId>com.google.protobuf</groupId>
@@ -50,7 +50,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.6.0</version>
                 <configuration>
-                    <mainClass>io.netifi.proteus.quickstart.client.Main</mainClass>
+                    <mainClass>com.netifi.quickstart.client.Main</mainClass>
                     <cleanupDaemonThreads>false</cleanupDaemonThreads>
                 </configuration>
             </plugin>

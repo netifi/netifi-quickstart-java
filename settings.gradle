@@ -1,4 +1,4 @@
-rootProject.name = 'proteus-quickstart'
+rootProject.name = 'netifi-quickstart-java'
 include 'client'
 include 'service'
 include 'service-idl'
