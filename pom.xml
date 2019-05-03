@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>io.netifi.proteus.quickstart</groupId>
-    <artifactId>proteus-quickstart</artifactId>
-    <version>1.6.1</version>
+    <groupId>com.netifi.quickstart</groupId>
+    <artifactId>netifi-quickstart-java</artifactId>
+    <version>1.6.2</version>
     <packaging>pom</packaging>
     <name>multi</name>
 
@@ -17,7 +17,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <log4j2.version>2.11.2</log4j2.version>
-        <proteus.bom.version>1.6.1</proteus.bom.version>
+        <netifi.bom.version>1.6.2</netifi.bom.version>
         <protobuf.version>3.6.1</protobuf.version>
         <rsocket.version>0.11.17.2</rsocket.version>
         <rsocket.rpc.version>0.2.13.3</rsocket.rpc.version>
@@ -26,9 +26,9 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>io.netifi.proteus</groupId>
-                <artifactId>proteus-bom</artifactId>
-                <version>${proteus.bom.version}</version>
+                <groupId>com.netifi</groupId>
+                <artifactId>netifi-bom</artifactId>
+                <version>${netifi.bom.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -69,8 +69,8 @@
             <url>https://jcenter.bintray.com/</url>
         </repository>
         <repository>
-            <id>netifi-oss</id>
-            <url>https://dl.bintray.com/netifi/netifi-oss/</url>
+            <id>mavenCentral</id>
+            <url>https://mvnrepository.com/repos/central</url>
         </repository>
     </repositories>
 </project>

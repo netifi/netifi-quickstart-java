@@ -8,7 +8,7 @@ sourceCompatibility = 1.8
 dependencies {
     implementation project(':service-idl')
 
-    implementation "io.netifi.proteus:proteus-client"
+    implementation "com.netifi:netifi-broker-client"
     implementation "com.google.protobuf:protobuf-java"
 
     implementation "org.apache.logging.log4j:log4j-api"
@@ -16,4 +16,4 @@ dependencies {
     implementation "org.apache.logging.log4j:log4j-slf4j18-impl"
 }
 
-mainClassName = 'io.netifi.proteus.quickstart.service.Main'
+mainClassName = 'com.netifi.quickstart.service.Main'

@@ -1,8 +1,8 @@
-package io.netifi.proteus.quickstart.service;
+package com.netifi.quickstart.service;
 
-import io.netifi.proteus.quickstart.service.protobuf.HelloRequest;
-import io.netifi.proteus.quickstart.service.protobuf.HelloResponse;
-import io.netifi.proteus.quickstart.service.protobuf.HelloService;
+import com.netifi.quickstart.service.protobuf.HelloRequest;
+import com.netifi.quickstart.service.protobuf.HelloResponse;
+import com.netifi.quickstart.service.protobuf.HelloService;
 import io.netty.buffer.ByteBuf;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
