@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.netifi.quickstart</groupId>
     <artifactId>netifi-quickstart-java</artifactId>
-    <version>1.6.2</version>
+    <version>1.6.3</version>
     <packaging>pom</packaging>
     <name>multi</name>
 
@@ -17,7 +17,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <log4j2.version>2.11.2</log4j2.version>
-        <netifi.bom.version>1.6.2</netifi.bom.version>
+        <netifi.bom.version>1.6.3</netifi.bom.version>
         <protobuf.version>3.6.1</protobuf.version>
         <rsocket.version>0.11.21</rsocket.version>
         <rsocket.rpc.version>0.2.16</rsocket.rpc.version>
