@@ -1,12 +1,13 @@
 plugins {
     id 'java'
     id 'application'
+    id 'com.google.protobuf'
 }
 
 sourceCompatibility = 1.8
 
 dependencies {
-    compile project(':service-idl')
+    protobuf project(':service-idl')
 
     compile "com.netifi:netifi-broker-client"
     compile "com.google.protobuf:protobuf-java"
@@ -17,3 +18,21 @@ dependencies {
 }
 
 mainClassName = 'com.netifi.quickstart.client.Main'
+
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc'
+    }
+    plugins {
+        rsocketRpc {
+            artifact = 'io.rsocket.rpc:rsocket-rpc-protobuf'
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.plugins {
+                rsocketRpc {}
+            }
+        }
+    }
+}
