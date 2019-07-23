@@ -19,7 +19,7 @@
         <log4j2.version>2.11.2</log4j2.version>
         <netifi.bom.version>1.6.7</netifi.bom.version>
         <protobuf.version>3.6.1</protobuf.version>
-        <rsocket.version>0.12.2-RC3</rsocket.version>
+        <rsocket.version>0.12.2-RC4</rsocket.version>
         <rsocket.rpc.version>0.2.18</rsocket.rpc.version>
     </properties>
 
