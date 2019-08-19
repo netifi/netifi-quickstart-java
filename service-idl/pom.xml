@@ -7,12 +7,12 @@
     <parent>
         <groupId>com.netifi.quickstart</groupId>
         <artifactId>netifi-quickstart-java</artifactId>
-        <version>1.6.7</version>
+        <version>1.6.8</version>
     </parent>
 
     <artifactId>service-idl</artifactId>
     <name>service-idl</name>
-    <version>1.6.7</version>
+    <version>1.6.8</version>
     <packaging>jar</packaging>
 
     <dependencies>
